@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diplomarbeitantragsformular</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css" />
+  </head>
+  <body id="body">
+    <div class="container" id="app">
+      <img src="./images/HTL_Wien_West.png" width="100px" id="logo" />
+      <center>
+        <h1 id="ueberschrift">{{ titel }}</h1>
+      </center>
+
+      <div id="div_schueler">
+        <center>
+          <div id="div_kandidaten">
+            <form>
+              <p id="text2">Anzahl der Kandidaten:</p>
+              <fieldset>
+                <input
+                  @click="schueleranzeigen1()"
+                  type="radio"
+                  id="i_k1"
+                  name="Kandidaten"
+                />
+                <label for="i_k1">1 Kandidat</label>
+                <input
+                  @click="schueleranzeigen2()"
+                  type="radio"
+                  id="i_k2"
+                  name="Kandidaten"
+                />
+                <label for="i_k2">2 Kandidaten</label>
+                <br />
+                <input
+                  @click="schueleranzeigen3()"
+                  type="radio"
+                  id="i_k3"
+                  name="Kandidaten"
+                />
+                <label for="i_k3">3 Kandidaten</label>
+                <input
+                  @click="schueleranzeigen4()"
+                  type="radio"
+                  id="i_k4"
+                  name="Kandidaten"
+                />
+                <label for="i_k4">4 Kandidaten</label>
+              </fieldset>
+            </form>
+          </div>
+          <p id="ueberschrift1">Daten der Schüler:</p>
+        </center>
+        <div class="row" id="div_k">
+          <div class="col-3" id="div_k" v-show="sehen1">
+            <center>
+              <p id="k">1. Kandidat (PL):</p>
+              <p>Vorname:</p>
+              <input
+                v-model="schueler[0].vorname"
+                id="inp"
+                type="text"
+                class="form-control"
+              />
+              <p id="nn">Nachname:</p>
+              <input
+                v-model="schueler[0].nachname"
+                id="inp"
+                type="text"
+                class="form-control"
+              />
+              <select class="btn btn-danger dropdown-toggle" id="klasse">
+                <option selected disabled hidden>Klasse</option>
+                <option v-for="k of klassen">{{k.bezeichnung}}</option>
+              </select>
+            </center>
+          </div>
+
+          <div class="col-3" id="div_k" v-show="sehen2">
+            <center>
+              <p id="k">2. Kandidat (PL-SV):</p>
+              <p>Vorname:</p>
+              <input
+                v-model="schueler[1].vorname"
+                id="inp"
+                type="text"
+                class="form-control"
+              />
+              <p id="nn">Nachname:</p>
+              <input
+                v-model="schueler[1].nachname"
+                id="inp"
+                type="text"
+                class="form-control"
+              />
+              <select class="btn btn-danger dropdown-toggle" id="klasse">
+                <option selected disabled hidden>Klasse</option>
+                <option v-for="k of klassen">{{k.bezeichnung}}</option>
+              </select>
+            </center>
+          </div>
+
+          <div class="col-3" v-show="sehen3" id="div_k">
+            <center>
+              <p id="k" v-show="sehen3">3. Kandidat (PTM):</p>
+              <p>Vorname:</p>
+              <input
+                v-model="schueler[2].vorname"
+                id="inp"
+                type="text"
+                class="form-control"
+              />
+              <p id="nn">Nachname:</p>
+              <input
+                v-model="schueler[2].nachname"
+                id="inp"
+                type="text"
+                class="form-control"
+              />
+              <select class="btn btn-danger dropdown-toggle" id="klasse">
+                <option selected disabled hidden>Klasse</option>
+                <option v-for="k of klassen">{{k.bezeichnung}}</option>
+              </select>
+            </center>
+          </div>
+
+          <div class="col-3" v-show="sehen4" id="div_k">
+            <center>
+              <p id="k">4. Kandidat (PTM):</p>
+              <p>Vorname:</p>
+              <input
+                v-model="schueler[3].vorname"
+                id="inp"
+                type="text"
+                class="form-control"
+              />
+              <p id="nn">Nachname:</p>
+              <input
+                v-model="schueler[3].nachname"
+                id="inp"
+                type="text"
+                class="form-control"
+              />
+              <select class="btn btn-danger dropdown-toggle" id="klasse">
+                <option selected disabled hidden>Klasse</option>
+                <option v-for="k of klassen">{{k.bezeichnung}}</option>
+              </select>
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <center>
+        <div id="div_betreuer">
+          <p id="text2">Gewünschte Betreuer:</p>
+          <form>
+            <fieldset>
+              <select
+                v-show="sehen1"
+                id="select"
+                class="btn btn-danger dropdown-toggle"
+                name="Betreuer"
+              >
+                <option selected disabled hidden>Lehrer auswählen</option>
+                <option v-for="l of alleLehrer">
+                  {{l.vorname}} {{l.nachname}}
+                </option>
+              </select>
+              <select
+                v-show="sehen2"
+                id="select"
+                class="btn btn-danger dropdown-toggle"
+                name="Betreuer"
+              >
+                <option selected disabled hidden>Lehrer auswählen</option>
+                <option v-for="l of alleLehrer">
+                  {{l.vorname}} {{l.nachname}}
+                </option>
+              </select>
+              <select
+                v-show="sehen3"
+                id="select"
+                class="btn btn-danger dropdown-toggle"
+                name="Betreuer"
+              >
+                <option selected disabled hidden>Lehrer auswählen</option>
+                <option v-for="l of alleLehrer">
+                  {{l.vorname}} {{l.nachname}}
+                </option>
+              </select>
+              <select
+                v-show="sehen4"
+                id="select"
+                class="btn btn-danger dropdown-toggle"
+                name="Betreuer"
+              >
+                <option selected disabled hidden>Lehrer auswählen</option>
+                <option v-for="l of alleLehrer">
+                  {{l.vorname}} {{l.nachname}}
+                </option>
+              </select>
+            </fieldset>
+          </form>
+        </div>
+      </center>
+      <p>{{gewählteLehrer}}</p>
+      <center><p id="ueberschrift1">Projektidee</p></center>
+      <div id="div_links">
+        <center>
+          <p id="text2">Ausgangssituation:</p>
+          <textarea
+            id="ta"
+            v-model="ausgangssituation"
+            placeholder="Kurze Beschreibung der Voraussetzungen und Rahmenbedingungen des Projekts (Wie ist es zu dem Projekt gekommen, welche Rand- und Rahmenbedingungen gibt es?)"
+          ></textarea>
+        </center>
+      </div>
+      <div id="div_rechts">
+        <center>
+          <p id="text2">Beschreibung der Idee:</p>
+          <textarea
+            id="ta"
+            v-model="beschreibungDerIdee"
+            placeholder="Kurze Beschreibung der Projektidee"
+          ></textarea>
+        </center>
+      </div>
+
+      <center><p id="ueberschrift3">Projektziele</p></center>
+      <div id="div_links">
+        <center>
+          <p id="text2">MUSS Ziele:</p>
+          <textarea
+            id="ta"
+            v-model="mussZiele"
+            placeholder="Auflistung der einzelnen Ziele, Beschreibung inklusive Lösungsansatz."
+          ></textarea>
+        </center>
+      </div>
+      <div id="div_rechts">
+        <center>
+          <p id="text2">NICHT Ziele:</p>
+          <textarea
+            id="ta"
+            v-model="nichtZiele"
+            placeholder="Achtung, NICHT ZIELE werden positiv formuliert und sollen das Projekt eingrenzen. Dienen vor allem auch zur Sicherheit des Projektleiters, da explizit formuliert wird, was NICHT geliefert wird."
+          ></textarea>
+        </center>
+      </div>
+      <center>
+        <p id="ueberschrift2">Projektorganisation</p>
+        <button id="b_download" class="btn btn-danger">
+          Projektorganisation Grafik Download
+        </button>
+        <br />
+        <p id="gh">Grafik hochladen:</p>
+        <input
+          type="file"
+          id="inp2"
+          class="btn btn-outline-danger"
+          placeholder="Grafik hochladen"
+        />
+      </center>
+
+      <center>
+        <table id="t_po" class="table table-hover">
+          <thead>
+            <tr>
+              <th>Funktion</th>
+              <th>Vorname</th>
+              <th>Nachname</th>
+              <th>Kürzel</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-show="sehen1">
+              <td>Projektleiter</td>
+              <td>{{schueler[0].vorname}}</td>
+              <td>{{schueler[0].nachname}}</td>
+              <td>
+                <input
+                  v-model="schueler[0].kürzel"
+                  id="inp"
+                  type="text"
+                  class="form-control"
+                />
+              </td>
+              <td>
+                <input
+                  v-model="schueler[0].email"
+                  id="inp"
+                  type="email"
+                  class="form-control"
+                />
+              </td>
+            </tr>
+            <tr v-show="sehen2">
+              <td>Projektleiter - Stellvertreter</td>
+              <td>{{schueler[1].vorname}}</td>
+              <td>{{schueler[1].nachname}}</td>
+              <td>
+                <input
+                  v-model="schueler[1].kürzel"
+                  id="inp"
+                  type="text"
+                  class="form-control"
+                />
+              </td>
+              <td>
+                <input
+                  v-model="schueler[1].email"
+                  id="inp"
+                  type="email"
+                  class="form-control"
+                />
+              </td>
+            </tr>
+            <tr v-show="sehen3">
+              <td>Projektmitarbeiter</td>
+              <td>{{schueler[2].vorname}}</td>
+              <td>{{schueler[2].nachname}}</td>
+              <td>
+                <input
+                  v-model="schueler[2].kürzel"
+                  id="inp"
+                  type="text"
+                  class="form-control"
+                />
+              </td>
+              <td>
+                <input
+                  v-model="schueler[2].email"
+                  id="inp"
+                  type="email"
+                  class="form-control"
+                />
+              </td>
+            </tr>
+            <tr v-show="sehen4">
+              <td>Projektmitarbeiter</td>
+              <td>{{schueler[3].vorname}}</td>
+              <td>{{schueler[3].nachname}}</td>
+              <td>
+                <input
+                  v-model="schueler[3].kürzel"
+                  id="inp"
+                  type="text"
+                  class="form-control"
+                />
+              </td>
+              <td>
+                <input
+                  v-model="schueler[3].email"
+                  id="inp"
+                  type="email"
+                  class="form-control"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </center>
+      <div class="row">
+        <div class="col-sm" v-show="sehen1" id="div_links1">
+          <center>
+            <p id="text3">{{schueler[0].vorname}} {{schueler[0].nachname}}</p>
+            <textarea
+              id="ta1"
+              v-model="schueler[0].funktionUndAufgabenstellung"
+              placeholder="Funktion und detaillierte Aufgabenstellung"
+            ></textarea>
+          </center>
+        </div>
+        <div class="col-sm" v-show="sehen2" id="div_links1">
+          <center>
+            <p id="text3">{{schueler[1].vorname}} {{schueler[1].nachname}}</p>
+            <textarea
+              id="ta1"
+              v-model="schueler[1].funktionUndAufgabenstellung"
+              placeholder="Funktion und detaillierte Aufgabenstellung"
+            ></textarea>
+          </center>
+        </div>
+        <div class="col-sm" v-show="sehen3" id="div_rechts1">
+          <center>
+            <p id="text3">{{schueler[2].vorname}} {{schueler[2].nachname}}</p>
+            <textarea
+              id="ta1"
+              v-model="schueler[2].funktionUndAufgabenstellung"
+              placeholder="Funktion und detaillierte Aufgabenstellung"
+            ></textarea>
+          </center>
+        </div>
+        <div class="col-sm" v-show="sehen4" id="div_rechts1">
+          <center>
+            <p id="text3">{{schueler[3].vorname}} {{schueler[3].nachname}}</p>
+            <textarea
+              id="ta1"
+              v-model="schueler[3].funktionUndAufgabenstellung"
+              placeholder="Funktion und detaillierte Aufgabenstellung"
+            ></textarea>
+          </center>
+        </div>
+      </div>
+      <center>
+        <p id="ueberschrift2">Projektumweltanalyse</p>
+        <button id="b_download" class="btn btn-danger">
+          Projektumweltanalyse Grafik Download
+        </button>
+        <br />
+        <p id="gh">Grafik hochladen:</p>
+        <input
+          type="file"
+          id="inp2"
+          class="btn btn-outline-danger"
+          placeholder="Grafik hochladen"
+        />
+      </center>
+
+      <center>
+        <table id="t_ua" class="table table-hover">
+          <thead>
+            <th>#</th>
+            <th>Bezeichnung</th>
+            <th>Beschreibung</th>
+            <th>Bewertung</th>
+            <th>Aktionen</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td>
+                <input
+                  v-model="ua_bezeichnung"
+                  id="inp1"
+                  class="form-control"
+                  type="text"
+                  placeholder="Bez. aus Grafik"
+                />
+              </td>
+              <td>
+                <input
+                  v-model="ua_beschreibung"
+                  id="inp1"
+                  class="form-control"
+                  type="text"
+                  placeholder="Beschreibung des Projekteinflusses"
+                />
+              </td>
+              <td>
+                <input
+                  v-model="ua_bewertung"
+                  id="inp"
+                  class="form-control"
+                  type="text"
+                  placeholder="+ / -  / o"
+                />
+              </td>
+              <td>
+                <button
+                  @click="umweltHinzufügen()"
+                  class="btn btn-outline-danger"
+                >
+                  Hinzufügen
+                </button>
+              </td>
+            </tr>
+            <tr v-for="u of umweltanalyse">
+              <td>{{u.id}}</td>
+              <td>{{u.bezeichnung}}</td>
+              <td>{{u.beschreibung}}</td>
+              <td>{{u.bewertung}}</td>
+              <td>
+                <button @click="umweltEntfernen(u.id)" class="btn btn-danger">
+                  Entfernen
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </center>
+      <center>
+        <p id="ueberschrift2">Projektrisikoanalyse</p>
+        <button id="b_download" class="btn btn-danger">
+          Projektrisikoanalyse Grafik Download
+        </button>
+        <br />
+        <p id="gh">Grafik hochladen:</p>
+        <input
+          type="file"
+          id="inp2"
+          class="btn btn-outline-danger"
+          placeholder="Grafik hochladen"
+        />
+      </center>
+
+      <center>
+        <table id="t_ua" class="table table-hover">
+          <thead>
+            <th>#</th>
+            <th>Bezeichnung</th>
+            <th>Beschreibung</th>
+            <th>Eintrittswahrscheinlichkeit</th>
+            <th>Auswirkung</th>
+            <th>Risikofaktor</th>
+            <th>Aktionen</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td>
+                <input
+                  v-model="ra_bezeichnung"
+                  id="inp1"
+                  class="form-control"
+                  type="text"
+                  placeholder="Bez. aus Grafik"
+                />
+              </td>
+              <td>
+                <input
+                  v-model="ra_beschreibung"
+                  id="inp1"
+                  class="form-control"
+                  type="text"
+                  placeholder="Beschreibung des Risikos"
+                />
+              </td>
+              <td>
+                <input
+                  v-model="ra_p"
+                  id="inp"
+                  class="form-control"
+                  type="number"
+                  placeholder="P (0-100)"
+                />
+              </td>
+              <td>
+                <input
+                  v-model="ra_a"
+                  id="inp"
+                  class="form-control"
+                  type="number"
+                  placeholder="A (0-100)"
+                />
+              </td>
+              <td>
+                <p>P * A</p>
+              </td>
+              <td>
+                <button
+                  @click="risikoHinzufügen()"
+                  class="btn btn-outline-danger"
+                >
+                  Hinzufügen
+                </button>
+              </td>
+            </tr>
+            <tr v-for="r of risikoanalyse">
+              <td>{{r.id}}</td>
+              <td>{{r.bezeichnung}}</td>
+              <td>{{r.beschreibung}}</td>
+              <td>{{r.p}}</td>
+              <td>{{r.a}}</td>
+              <td>{{r.risikofaktor}}</td>
+              <td>
+                <button @click="risikoEntfernen(r.id)" class="btn btn-danger">
+                  Entfernen
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </center>
+    </div>
+
+    <script src="javascripts/vue.min.js"></script>
+    <script src="javascripts/axios.min.js"></script>
+    <script src="javascripts/app.js"></script>
+  </body>
+</html>

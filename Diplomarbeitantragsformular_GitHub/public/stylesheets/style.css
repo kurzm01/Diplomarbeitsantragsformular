@@ -1,0 +1,201 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+#body {
+  background-color: #ad0013;
+  opacity: 1;
+}
+
+#app {
+  background-color: white;
+  opacity: 1;
+  border: 2px solid #ad0013;
+  border-radius: 6px;
+}
+
+#app:hover {
+  background-color: white;
+  opacity: 1;
+  border: 2px solid black;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+#ueberschrift {
+  margin-left: 5%;
+  margin-top: 2.5%;
+  text-decoration-line: underline;
+}
+
+#klasse {
+  margin-top: 10%;
+}
+
+#ueberschrift1 {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration-line: underline;
+  margin-top: 5%;
+}
+
+#ueberschrift2 {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration-line: underline;
+  margin-top: 5%;
+}
+
+#ueberschrift3 {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration-line: underline;
+  margin-top: 45%;
+}
+
+#logo {
+  float: right;
+  margin-top: 2%;
+}
+
+#text1 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#text2 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#div_kandidaten {
+  border: 2px solid #be1622;
+  border-radius: 2px;
+  width: 300px;
+}
+
+#div_schueler {
+  height: 90%;
+  width: 100%;
+  margin-top: 5%;
+}
+
+#inp {
+  width: 200px;
+  border: 1px solid #ad0013;
+  border-radius: 2px;
+}
+
+#inp1 {
+  border: 1px solid #ad0013;
+  border-radius: 2px;
+}
+
+#div_k {
+  background-color: none;
+  margin-top: 2.5%;
+}
+
+#k {
+  color: #be1622;
+  font-weight: bold;
+  text-decoration-line: underline;
+}
+
+#nn {
+  padding-top: 10%;
+}
+
+#p1 {
+  padding-top: 10%;
+}
+
+#div_betreuer {
+  height: 200px;
+  width: 450px;
+  margin-top: 5%;
+  border: 2px solid #be1622;
+  border-radius: 3px;
+}
+
+#i_rb {
+  height: 50px;
+  width: 100px;
+}
+
+#select {
+  margin-top: 5%;
+}
+
+#ta {
+  width: 400px;
+  height: 300px;
+  border: 2px solid #ad0013;
+  border-radius: 2px;
+}
+
+#ta1 {
+  width: 200px;
+  height: 210px;
+  border: 2px solid #ad0013;
+  border-radius: 2px;
+}
+
+#div_rechts {
+  height: 450px;
+  width: 450px;
+  float: right;
+}
+
+#div_links {
+  height: 450px;
+  width: 450px;
+  float: left;
+}
+
+#t_po {
+  border: 2px solid #be1622;
+  border-radius: 3px;
+  width: 100%;
+  margin-top: 5%;
+}
+
+#t_ua {
+  border: 2px solid #be1622;
+  border-radius: 3px;
+  width: 100%;
+  margin-top: 5%;
+}
+
+#div_links1 {
+  height: 290px;
+  width: 250px;
+  float: left;
+  border: 2px solid #be1622;
+  border-radius: 3px;
+  margin-top: 5%;
+}
+
+#div_rechts1 {
+  height: 290px;
+  width: 250px;
+  float: right;
+  border: 2px solid #be1622;
+  border-radius: 3px;
+  margin-top: 5%;
+}
+
+#text3 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#gh {
+  margin-top: 2.5%;
+  font-weight: bold;
+}
